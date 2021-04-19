@@ -226,6 +226,8 @@ section {
   border-radius: 8px;
   margin: 0 10px;
   transition: 0.4s;
+  /* 인터넷 익스플로러 호환성 */
+  flex-shrink: 0;
 }
 
 .class-card:hover {
@@ -234,9 +236,8 @@ section {
 }
 
 .class-image {
-  width: 240px;
+  max-width: 240px;
   border-radius: 8px 8px 0 0;
-  height: 150px;
 }
 
 .class-container {
@@ -288,6 +289,29 @@ section {
 
 li a:hover {
   cursor: pointer;
+}
+
+footer {
+  border-top: 1px solid #e4e4e4;
+  background-color: #f8f9fa;
+  padding: 1rem 0;
+  margin: 1rem 0;
+}
+
+.footer-message {
+  font-weight: bold;
+  color: #545e6f;
+  margin: 0.3rem 0.5rem;
+}
+
+.footer-contact {
+  color: #545e6f;
+  margin: 0 0.5rem;
+}
+
+.footer-copyright {
+  color: #545e6f;
+  margin: 1rem 0.5rem;
 }
 
 @media only screen and (min-width: 1200px) {
