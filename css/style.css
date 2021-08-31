@@ -240,7 +240,7 @@ section {
   list-style: none;
   padding: 1rem 0;
   margin: 0;
-  overflow: none;
+  overflow: none; /* overflow 를 hidden 으로 설정하면, transform 시 이미지 짤림 */
 }
 
 .class-card {
@@ -296,11 +296,16 @@ section {
 .class-desc {
   width: 100%;
   margin-top: 1rem;
+  color: #545e6f;
+}
+
+.class-desc:hover {
+  color: #2186c4;
 }
 
 .class-title {
   font-weight: bold;
-  color: #545e6f;
+  color: inherit;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -310,7 +315,7 @@ section {
 
 .class-detail {
   font-size: 0.9rem;
-  color: #545e6f;
+  color: inherit;
   line-height: 1.5rem;
 }
 
@@ -366,7 +371,7 @@ footer {
   1. ::after (요소 뒤에 content 추가) 가상 요소에서,
   2. content: "폰트어썸 유니코드" 를 넣고,
   3. font-family: FontAwesome 이라고 넣으면 됨
-*/
+  */
 #backtotop::after {
   content: "\f077";
   font-family: FontAwesome;
@@ -386,6 +391,16 @@ footer {
   background-color: rgb(47, 48, 49);
 }
 
+/* drag 할 수 있는 아이템임을 나타내는 표시를 포인터로 변경함 */
+ul li img:hover {
+  cursor: grab; /* IE11에서는 지원 안함 */
+}
+
+/* dragging 중인 상태에서 잡는 표시를 포인터로 변경함 */
+ul li img:active {
+  cursor: grabbing; /* IE11에서는 지원 안함 */
+}
+
 @media only screen and (min-width: 1200px) {
   .inner {
     max-width: 1200px;
@@ -398,5 +413,41 @@ footer {
   }
   .roadmap-desc {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .class-skill {
+    display: none;
+  }
+  .class-container {
+    padding: 0.5rem;
+  }
+  .class-desc {
+    margin-top: 0rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 0.8rem;
+  }
+  .message {
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: #fff;
+    line-height: 2rem;
+  }
+  .class-skill {
+    display: none;
+  }
+  .class-container {
+    padding: 0.5rem;
+  }
+  .class-desc {
+    margin-top: 0.3rem;
   }
 }
